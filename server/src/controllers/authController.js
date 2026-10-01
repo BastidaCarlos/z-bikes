@@ -2,7 +2,7 @@ import Admin from "../models/Admin.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         if (!email || !password) {
@@ -40,6 +40,6 @@ export const login = async (req, res) => {
             }
         })
     } catch (error) {
-        return res.status(500).json({ message: 'Internal server error' })
+        next(error)
     }
 }

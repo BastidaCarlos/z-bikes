@@ -1,7 +1,7 @@
 import Resultado from "../models/Resultado.js";
 import procesarCSVResultados from "../services/csvService.js";
 
-export const cargarResultados = async (req, res) => {
+export const cargarResultados = async (req, res, next) => {
     try {
         if (!req.file) {
             return res.status(400).json({ message: 'No se ha subido ningún archivo'})
@@ -17,11 +17,11 @@ export const cargarResultados = async (req, res) => {
             totalResultados: resultado.length
         })
     } catch (error) {
-        res.status(500).json({ message: 'No se pudo subir los resultados' })
+        next(error)
     }
 }
 
-export const obtenerResultados = async (req, res) => {
+export const obtenerResultados = async (req, res, next) => {
     const { route, category, edition, q } = req.query
     const page = parseInt(req.query.page, 10) || 1;
     const limit = parseInt(req.query.limit, 10) || 10;
@@ -71,6 +71,6 @@ export const obtenerResultados = async (req, res) => {
             totalPages: Math.ceil( matchResults / limit )
         })
     } catch (error) {
-        res.status(500).json({ message: 'Internal Server Error' })
+        next(error)
     }
 }
