@@ -32,16 +32,19 @@ cd server/
    Crea un archivo .env en la raíz del proyecto tomando como referencia la plantilla .env.example y asegurate de que se encuentra dentro del archivo .gitignore
    Configura las siguientes variables dentro de tu .env
 
-   PORT=5000
-   MONGO_URI=mongodb+srv://<usuario>:<password>@cluster.mongodb.net/<dbname>
-   JWT_SECRET=tu_secreto_jwt_super_seguro
-   FRONTEND_URL=http://localhost:5173
+```properties
+## Configuración del Servidor
+PORT=5000
+NODE_ENV=development
+MONGO_URI=mongodb+srv://<usuario>:<password>@cluster.mongodb.net/<dbname>
+JWT_SECRET=tu_secreto_jwt_super_seguro
+FRONTEND_URL=http://localhost:5173
 
-   # Configuración de Cloudinary
-
-   CLOUDINARY_CLOUD_NAME=tu_cloud_name
-   CLOUDINARY_API_KEY=tu_api_key
-   CLOUDINARY_API_SECRET=tu_api_secret
+# Configuración de Cloudinary
+CLOUDINARY_CLOUD_NAME=tu_cloud_name
+CLOUDINARY_API_KEY=tu_api_key
+CLOUDINARY_API_SECRET=tu_api_secret
+```
 
 3. Inicia el servidor con recarga automática
 

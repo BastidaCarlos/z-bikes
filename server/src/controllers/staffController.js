@@ -64,7 +64,7 @@ export const crearStaff = async (req, res, next) => {
 export const actualizarStaff = async (req, res, next) => {
     try {
         const staffId = req.params.id;
-        const { name, rol, image } = req.body;
+        const { name, rol } = req.body;
 
         const upadateData = {};
         if (name) upadateData.name = name
@@ -78,7 +78,7 @@ export const actualizarStaff = async (req, res, next) => {
         const updateMember = await Staff.findByIdAndUpdate(
             staffId,
             upadateData,
-            { new: true }
+            { returnDocument: 'after' }
         )
 
         if (!updateMember) {
@@ -99,7 +99,7 @@ export const eliminarStaff = async (req, res, next) => {
         const deleteMember = await Staff.findByIdAndUpdate(
             staffId,
             { isActive: false },
-            { new: true }
+            { returnDocument: 'after' }
         )
 
         if (!deleteMember) {
