@@ -1,12 +1,14 @@
 import Staff from "../models/Staff.js";
 import Resultado from "../models/Resultado.js";
+import Bicicleta from "../models/Bicicleta.js";
 
 export const obtenerResumen = async (req, res, next) => {
     try {
-        const [ results, activeStaff, inactiveStaff ] = await Promise.all([
+        const [ results, activeStaff, inactiveStaff, bicicletas ] = await Promise.all([
             Resultado.countDocuments(),
             Staff.countDocuments({ isActive: true }),
-            Staff.countDocuments({ isActive: false })
+            Staff.countDocuments({ isActive: false }),
+            Bicicleta.countDocuments()
         ])
 
         return res.status(200).json(
@@ -20,6 +22,9 @@ export const obtenerResumen = async (req, res, next) => {
                         activos: activeStaff,
                         inactivos: inactiveStaff,
                         total: activeStaff + inactiveStaff
+                    },
+                    bicicletas: {
+                        totalRegistradas: bicicletas
                     }
                 }
             }

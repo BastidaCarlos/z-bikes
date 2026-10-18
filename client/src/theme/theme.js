@@ -2,13 +2,18 @@ import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 
 const config = defineConfig({
     globalCss: {
-        "html, body": {
-            bg: { base: "bg.canvas" },
+        "html body": {
+            fontFamily: "body",
+            margin: 0,
+            padding: 0,
+            boxSizing: "border-box",
+            overflowX: "hidden",
+            maxWidth: "100vw",
         },
     },
     theme: {
         breakpoints: {
-            sm: "480px",
+            sm: "300px",
             md: "768px",
             lg: "1024px",
             xl: "1280px",
@@ -42,7 +47,7 @@ const config = defineConfig({
                     800: { value: "#0A384E" },
                     900: { value: "#041821" },
                 },
-                teal: {
+                lagunaHover: {
                     DEFAULT: { value: "#0D7FAF" },
                     50: { value: "#D8F2FC" },
                     100: { value: "#C1E9FA" },

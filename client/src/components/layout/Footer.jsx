@@ -12,28 +12,36 @@ import {
 } from "@chakra-ui/react"
 import { FaFacebook, FaInstagram, FaTiktok, FaPhoneAlt } from "react-icons/fa"
 import { IoMdMail } from "react-icons/io"
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
     const currentYear = new Date().getFullYear();
+    const navigate = useNavigate();
 
     return (
         <Box
             as="footer"
-            display="flex"
-            direction='column'
-            width="100%"
+            w="100%"
+            maxW="100%"
+            overflowX="hidden"
             mx='auto'
-            pb={4}
-            alignContent="center"
-            justifyContent="center"
+            py={6}
+            px={4}
+            bg="white"
         >
-            <VStack>
+            <VStack w="100%" maxW="1200px" mx="auto" gap={6}>
                 <Grid
                     templateAreas={{
                         base: 
                         `
-                        "logo contact"
-                        "social contact"
+                            "logo"
+                            "contact"
+                            "social"
+                        `,
+                        md: 
+                        `
+                            "logo contact"
+                            "social contact"
                         `,
                         lg: 
                         `
@@ -42,10 +50,9 @@ function Footer() {
                         `
                     }}
                     templateColumns={{
-                        base: "1fr 1fr",
-                        lg: "1fr 1fr"
+                        base: "1fr",
+                        md: "1fr 1fr"
                     }}
-                    templateRows="auto auto"
                     gap={{ base: 4, lg: 10}}
                     alignItems="center"
                     justifyItems="center"
@@ -72,7 +79,7 @@ function Footer() {
                                     fontFamily='heading' 
                                     textTransform="uppercase"
                                 >
-                                    Z-Bike's
+                                    Z-Bikes
                                 </Heading>
                                 <Text
                                     fontSize={{ base: 'xs', lg: 'sm' }}
@@ -84,22 +91,24 @@ function Footer() {
                     </GridItem>
                     <GridItem
                         area="contact"
+                        justifySelf="center"
                     >
                         <Heading 
                             as="h4"
-                            fontSize="xl"
+                            fontSize={{ base: 'xl', lg: "2xl"}}
                             fontWeight='bold'
                             textTransform="uppercase"
+                            textAlign={{ base: 'center' }}
                         >
                             Contacto
                         </Heading>
                         <VStack
                             mt={{ base: 6, lg: 0 }}
                             h="100%"
-                            alignItems="space-between"
-                            justifyItems="space-between"
+                            alignItems="flex-start"
+                            justifyContent="space-between"
                             gap={{ base: 4, lg: 0}}
-                            fontSize={{ base: 'sm' }}
+                            fontSize={{ base: 'sm', md: "md", lg: "lg" }}
                         >
                             <HStack>
                                 <IoMdMail />
@@ -147,7 +156,7 @@ function Footer() {
                                 >
                                     <FaFacebook />
                                     <Text>
-                                        @ZBike's
+                                        @ZBikes
                                     </Text>
                                 </HStack>
                                 <HStack
@@ -158,7 +167,7 @@ function Footer() {
                                 >
                                     <FaInstagram />
                                     <Text>
-                                        @ZBike's
+                                        @ZBikes
                                     </Text>
                                 </HStack>
                                 <HStack
@@ -169,7 +178,7 @@ function Footer() {
                                 >
                                     <FaTiktok />
                                     <Text>
-                                        @ZBike's
+                                        @ZBikes
                                     </Text>
                                 </HStack>
                             </Flex>
@@ -179,18 +188,19 @@ function Footer() {
                 <Box
                     border="none"
                     bg="teal"
-                    w="100%"
+                    w="90%"
                     mx="auto"
                     h="4px"
                 >
                 </Box>
                 <Box
-                    textAlign='center'
+                    textAlign="center"
                     fontStyle="italic"
                     fontWeight="medium"
+                    w="100%"
                 >
-                    <Text>
-                        &copy; {currentYear} Z-Bike's. Todos los derechos reservados
+                    <Text as="p">
+                        &copy; {currentYear} . <Text as="span" onClick={() => navigate('/admin/login')}>Z-Bikes</Text> Todos los derechos reservados
                     </Text>
                 </Box>
             </VStack>

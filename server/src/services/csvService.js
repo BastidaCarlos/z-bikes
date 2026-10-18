@@ -13,6 +13,7 @@ function procesarCSVResultados(rutaArchivo) {
 
         streamLectura
             .pipe(csv({
+                mapHeaders: ({ header }) => header.trim().replace(/^\uFEFF/, ''),
                 mapValues: ({ header, value }) => {
                     const camposNumericos = ['number', 'age', 'position', 'edition'];
                     if (camposNumericos.includes(header)) {

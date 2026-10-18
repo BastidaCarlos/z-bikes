@@ -17,6 +17,7 @@ export const cargarResultados = async (req, res, next) => {
             totalResultados: resultado.length
         })
     } catch (error) {
+        console.error("Detalle del error", error);
         next(error)
     }
 }

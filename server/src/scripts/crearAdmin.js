@@ -7,8 +7,8 @@ const crearAdministrador = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
         const adminData = {
-            email: process.env.INTIAL_ADMIN_EMAIL,  
-            password: process.env.INTIAL_ADMIN_PASSWORD
+            email: 'zbikesmtbsanjuanz@gmail.com',  
+            password: 'adminzbikes2026Retoz'
         }
 
         const admin = await Admin.findOne({ email: adminData.email });

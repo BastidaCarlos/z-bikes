@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { 
     Box,
@@ -7,41 +7,68 @@ import {
     Drawer,
     Flex,
     HStack,
+    Icon,
     IconButton,
-    Image,
     Link as ChakraLink,
+    Portal,
     Spacer,
-    Text,
     VStack
 } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi"
 import { IoMdClose } from "react-icons/io"
 import zbikesLogo from "../../assets/zbikesLogo.svg"
+import { MdAdminPanelSettings } from "react-icons/md";
 
 function Navbar() {
     const [ open, setOpen ] = useState(false);
 
+    const navigate = useNavigate();
     const location = useLocation();
+
+    const existsAdmin = localStorage.getItem('token');
 
     const isActive = (path) => location.pathname === path;
 
     return (
-        <Box as="header">
+        <Box 
+            as="header"
+            h="80px"
+            position="fixed"
+            mt={4}
+            w="100%"
+            top={0}
+            left={0}
+            zIndex={10}
+        >
             <Flex
                 align="center"
+                borderRadius="xl"
+                justifyItems="center"
                 px={{ base: '4', md: '6', lg: '8' }}
-                py={{ base: '3', md: '5' }}
-                maxW={{ base: '100%', lg: '900px', xl: '1200px' }}
+                maxW={{ base: '90%', lg: '900px', xl: '1200px' }}
                 mx="auto"
+                backdropFilter="blur(30px)"
+                bg="teal/30"
+                boxShadow="0px 5px 8px rgba(0, 0, 0, 0.3)"
             >
-                <Box>
-                    <Image 
-                        src={zbikesLogo}
-                        alt="Z-Bike's Logo"
-                        width="150px"
-                        height="60px"
-                        objectFit="contain"
-                    />
+                <Box
+                    w="150px"
+                    h="60px"
+                    bg="white"
+                    _hover={{ bg: 'trail'}}
+                    style={{
+                        maskImage: `url(${zbikesLogo})`,
+                        maskRepeat: "no-repeat",
+                        maskPosition: "center",
+                        maskSize: "contain",
+                        WebkitMaskImage: `url(${zbikesLogo})`,
+                        WebkitMaskRepeat: "no-repeat",
+                        WebkitMaskPosition: "center",
+                        WebkitMaskSize: "contain",
+                    }}
+                    onClick={() => navigate('/')}
+                    cursor="pointer"
+                >
                 </Box>
 
                 <Spacer />
@@ -54,10 +81,9 @@ function Navbar() {
                     <ChakraLink
                         asChild
                         fontWeight={isActive('/') ? 'bold' : 'medium'}
-                        bg={isActive('/') ? 'teal' : 'transparent'}
-                        p={isActive('/') ? '2' : 0}
-                        borderRadius={isActive('/') ? 'sm' : 'none'}
-                        color={isActive('/') ? 'trail' : 'black'}
+                        color={isActive('/') ? 'lagunaHover.600' : 'white'}
+                        borderBottom={isActive('/') ? '2px solid' : 'none'}
+                        borderColor={isActive('/') ? 'trail' : 'transparent'}
                         _hover={{ color: 'trail', textDecoration: "none"}}
                     >
                         <Link to={'/'}>Inicio</Link>
@@ -66,10 +92,9 @@ function Navbar() {
                     <ChakraLink
                         asChild
                         fontWeight={isActive('/comunidad') ? 'bold' : 'medium'}
-                        bg={isActive('/comunidad') ? 'teal' : 'transparent'}
-                        p={isActive('/comunidad') ? '2' : 0}
-                        borderRadius={isActive('/comunidad') ? 'sm' : 'none'}
-                        color={isActive('/comunidad') ? 'trail' : 'black'}
+                        color={isActive('/comunidad') ? 'lagunaHover.600' : 'white'}
+                        borderBottom={isActive('/comunidad') ? '2px solid' : 'none'}
+                        borderColor={isActive('/comunidad') ? 'trail' : 'transparent'}
                         _hover={{ color: 'trail', textDecoration: "none"}}
                     >
                         <Link to={'/comunidad'}>Comunidad</Link>
@@ -78,10 +103,9 @@ function Navbar() {
                     <ChakraLink
                         asChild
                         fontWeight={isActive('/reto-z') ? 'bold' : 'medium'}
-                        bg={isActive('/reto-z') ? 'teal' : 'transparent'}
-                        p={isActive('/reto-z') ? '2' : 0}
-                        borderRadius={isActive('/reto-z') ? 'sm' : 'none'}
-                        color={isActive('/reto-z') ? 'trail' : 'black'}
+                        color={isActive('/reto-z') ? 'lagunaHover.600' : 'white'}
+                        borderBottom={isActive('/reto-z') ? '2px solid' : 'none'}
+                        borderColor={isActive('/reto-z') ? 'trail' : 'transparent'}
                         _hover={{ color: 'trail', textDecoration: "none"}}
                     >
                         <Link to={'/reto-z'}>Reto Z</Link>
@@ -90,10 +114,9 @@ function Navbar() {
                     <ChakraLink
                         asChild
                         fontWeight={isActive('/rutas') ? 'bold' : 'medium'}
-                        bg={isActive('/rutas') ? 'teal' : 'transparent'}
-                        p={isActive('/rutas') ? '2' : 0}
-                        borderRadius={isActive('/rutas') ? 'sm' : 'none'}
-                        color={isActive('/rutas') ? 'trail' : 'black'}
+                        color={isActive('/rutas') ? 'lagunaHover.600' : 'white'}
+                        borderBottom={isActive('/rutas') ? '2px solid' : 'none'}
+                        borderColor={isActive('/rutas') ? 'trail' : 'transparent'}
                         _hover={{ color: 'trail', textDecoration: "none"}}
                     >
                         <Link to={'/rutas'}>Rutas</Link>
@@ -102,10 +125,9 @@ function Navbar() {
                     <ChakraLink
                         asChild
                         fontWeight={isActive('/resultados') ? 'bold' : 'medium'}
-                        bg={isActive('/resultados') ? 'teal' : 'transparent'}
-                        p={isActive('/resultados') ? '2' : 0}
-                        borderRadius={isActive('/resultados') ? 'sm' : 'none'}
-                        color={isActive('/resultados') ? 'trail' : 'black'}
+                        color={isActive('/resultados') ? 'lagunaHover.600' : 'white'}
+                        borderBottom={isActive('/resultados') ? '2px solid' : 'none'}
+                        borderColor={isActive('/resultados') ? 'trail' : 'transparent'}
                         _hover={{ color: 'trail', textDecoration: "none"}}
                     >
                         <Link to={'/resultados'}>Resultados</Link>
@@ -119,8 +141,21 @@ function Navbar() {
                         bg="laguna"
                         fontWeight="medium"
                     >
-                        Registrate
+                        Regístrate
                     </Button>
+                    {existsAdmin && (
+                        <ChakraLink
+                            asChild
+                            color={isActive('/admin/dashboard') ? 'lagunaHover.600' : 'white'}
+                            borderBottom={isActive('/admin/dashboard') ? '2px solid' : 'none'}
+                            borderColor={isActive('/admin/dashboard') ? 'trail' : 'transparent'}
+                            _hover={{ color: 'trail', textDecoration: "none"}}
+                        >
+                            <Link to={'/admin/dashboard'}>
+                                <Icon as={MdAdminPanelSettings} boxSize={6} color={isActive('/admin/dashboard') ? 'trail' : 'white'}/>
+                            </Link>
+                        </ChakraLink>
+                    )}
                 </HStack>
 
                 <IconButton
@@ -128,112 +163,152 @@ function Navbar() {
                     variant="ghost"
                     display={{ base: 'flex', lg: 'none' }}
                     onClick={() => setOpen(true)}
+                    color="white"
                 >
                     <GiHamburgerMenu size={30}/>
                 </IconButton>
 
-                <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
-                    <Drawer.Backdrop />
-                    <Drawer.Positioner placeContent="right">
-                        <Drawer.Content>
-                            <Drawer.Header
-                                display="flex"
-                                justifyContent="space-between"
-                                alignItems="center"
+                <Drawer.Root 
+                    open={open} 
+                    onOpenChange={(e) => setOpen(e.open)}
+                >
+                    <Portal>
+                        <Drawer.Backdrop bg="transparent"/>
+                        <Drawer.Positioner placeContent="right">
+                            <Drawer.Content
+                                bg="teal"
+                                border="none"
+                                boxShadow="none"
                             >
-                                <Image 
-                                    src={zbikesLogo}
-                                    alt="Z-Bike's Logo"
-                                    width="120px"
-                                    height="45px"
-                                    objectFit="contain"
-                                />
-                                <IconButton
-                                    aria-label="Close Menu"
-                                    variant="ghost"
-                                    color="red"
-                                    onClick={() => setOpen(false)}
+                                <Drawer.Header
+                                    display="flex"
+                                    justifyContent="space-between"
+                                    alignItems="center"
                                 >
-                                    <IoMdClose size={30}/>
-                                </IconButton>
-                            </Drawer.Header>
-                            <Drawer.Body mt={8}>
-                                <VStack align="stretch" gap={6}>
-                                    <ChakraLink
-                                        asChild
-                                        fontWeight={isActive('/') ? 'bold' : 'medium'}
-                                        bg={isActive('/') ? 'teal' : 'transparent'}
-                                        p={isActive('/') ? '2' : 0}
-                                        borderRadius={isActive('/') ? 'sm' : 'none'}
-                                        color={isActive('/') ? 'trail' : 'black'}
-                                        _hover={{ color: 'trail', textDecoration: "none"}}
+                                    <Box
+                                        w="150px"
+                                        h="60px"
+                                        bg="white"
+                                        _hover={{ bg: 'trail'}}
+                                        style={{
+                                            maskImage: `url(${zbikesLogo})`,
+                                            maskRepeat: "no-repeat",
+                                            maskPosition: "center",
+                                            maskSize: "contain",
+                                            WebkitMaskImage: `url(${zbikesLogo})`,
+                                            WebkitMaskRepeat: "no-repeat",
+                                            WebkitMaskPosition: "center",
+                                            WebkitMaskSize: "contain",
+                                        }}
+                                        onClick={() => navigate('/')}
+                                        cursor="pointer"
                                     >
-                                        <Link to={'/'}>Inicio</Link>
-                                    </ChakraLink>
+                                    </Box>
+                                    <IconButton
+                                        aria-label="Close Menu"
+                                        variant="ghost"
+                                        color="red"
+                                        onClick={() => setOpen(false)}
+                                    >
+                                        <IoMdClose size={30}/>
+                                    </IconButton>
+                                </Drawer.Header>
+                                <Drawer.Body 
+                                    mt={8}
+                                >
+                                    <VStack align="stretch" gap={6}>
+                                        <ChakraLink
+                                            asChild
+                                            fontSize="md"
+                                            fontWeight={isActive('/') ? 'bold' : 'medium'}
+                                            color={isActive('/') ? 'lagunaHover.600' : 'white'}
+                                            borderBottom={isActive('/') ? '2px solid' : 'none'}
+                                            borderColor={isActive('/') ? 'trail' : 'transparent'}
+                                            _hover={{ color: 'trail', textDecoration: "none"}}
+                                        >
+                                            <Link to={'/'}>Inicio</Link>
+                                        </ChakraLink>
 
-                                    <ChakraLink
-                                        asChild
-                                        fontWeight={isActive('/comunidad') ? 'bold' : 'medium'}
-                                        bg={isActive('/comunidad') ? 'teal' : 'transparent'}
-                                        p={isActive('/comunidad') ? '2' : 0}
-                                        borderRadius={isActive('/comunidad') ? 'sm' : 'none'}
-                                        color={isActive('/comunidad') ? 'trail' : 'black'}
-                                        _hover={{ color: 'trail', textDecoration: "none"}}
-                                    >
-                                        <Link to={'/comunidad'}>Comunidad</Link>
-                                    </ChakraLink>
+                                        <ChakraLink
+                                            asChild
+                                            fontSize="md"
+                                            fontWeight={isActive('/comunidad') ? 'bold' : 'medium'}
+                                            color={isActive('/comunidad') ? 'lagunaHover.600' : 'white'}
+                                            borderBottom={isActive('/comunidad') ? '2px solid' : 'none'}
+                                            borderColor={isActive('/comunidad') ? 'trail' : 'transparent'}
+                                            _hover={{ color: 'trail', textDecoration: "none"}}
+                                        >
+                                            <Link to={'/comunidad'}>Comunidad</Link>
+                                        </ChakraLink>
                     
-                                    <ChakraLink
-                                        asChild
-                                        fontWeight={isActive('/reto-z') ? 'bold' : 'medium'}
-                                        bg={isActive('/reto-z') ? 'teal' : 'transparent'}
-                                        p={isActive('/reto-z') ? '2' : 0}
-                                        borderRadius={isActive('/reto-z') ? 'sm' : 'none'}
-                                        color={isActive('/reto-z') ? 'trail' : 'black'}
-                                        _hover={{ color: 'trail', textDecoration: "none"}}
-                                    >
-                                        <Link to={'/reto-z'}>Reto Z</Link>
-                                    </ChakraLink>
+                                        <ChakraLink
+                                            asChild
+                                            fontSize="md"
+                                            fontWeight={isActive('/reto-z') ? 'bold' : 'medium'}
+                                            color={isActive('/reto-z') ? 'lagunaHover.600' : 'white'}
+                                            borderBottom={isActive('/reto-z') ? '2px solid' : 'none'}
+                                            borderColor={isActive('/reto-z') ? 'trail' : 'transparent'}
+                                            _hover={{ color: 'trail', textDecoration: "none"}}
+                                        >
+                                            <Link to={'/reto-z'}>Reto Z</Link>
+                                        </ChakraLink>
 
-                                    <ChakraLink
-                                        asChild
-                                        fontWeight={isActive('/rutas') ? 'bold' : 'medium'}
-                                        bg={isActive('/rutas') ? 'teal' : 'transparent'}
-                                        p={isActive('/rutas') ? '2' : 0}
-                                        borderRadius={isActive('/rutas') ? 'sm' : 'none'}
-                                        color={isActive('/rutas') ? 'trail' : 'black'}
-                                        _hover={{ color: 'trail', textDecoration: "none"}}
-                                    >
-                                        <Link to={'/rutas'}>Rutas</Link>
-                                    </ChakraLink>
+                                        <ChakraLink
+                                            asChild
+                                            fontSize="md"
+                                            fontWeight={isActive('/rutas') ? 'bold' : 'medium'}
+                                            color={isActive('/rutas') ? 'lagunaHover.600' : 'white'}
+                                            borderBottom={isActive('/rutas') ? '2px solid' : 'none'}
+                                            borderColor={isActive('/rutas') ? 'trail' : 'transparent'}
+                                            _hover={{ color: 'trail', textDecoration: "none"}}
+                                        >
+                                            <Link to={'/rutas'}>Rutas</Link>
+                                        </ChakraLink>
 
-                                    <ChakraLink
-                                        asChild
-                                        fontWeight={isActive('/resultados') ? 'bold' : 'medium'}
-                                        bg={isActive('/resultados') ? 'teal' : 'transparent'}
-                                        p={isActive('/resultados') ? '2' : 0}
-                                        borderRadius={isActive('/resultados') ? 'sm' : 'none'}
-                                        color={isActive('/resultados') ? 'trail' : 'black'}
-                                        _hover={{ color: 'trail', textDecoration: "none"}}
-                                    >
-                                        <Link to={'/resultados'}>Resultados</Link>
-                                    </ChakraLink>
+                                        <ChakraLink
+                                            asChild
+                                            fontSize="md"
+                                            fontWeight={isActive('/resultados') ? 'bold' : 'medium'}
+                                            color={isActive('/resultados') ? 'lagunaHover.600' : 'white'}
+                                            borderBottom={isActive('/resultados') ? '2px solid' : 'none'}
+                                            borderColor={isActive('/resultados') ? 'trail' : 'transparent'}
+                                            _hover={{ color: 'trail', textDecoration: "none"}}
+                                        >
+                                            <Link to={'/resultados'}>Resultados</Link>
+                                        </ChakraLink>
 
-                                    <Button
-                                        as="a"
-                                        href="https://docs.google.com/forms/d/e/1FAIpQLSfK2DTgveIHUx-Y03_Bt7WKB0oZOTehXiuicsR_hy4Ncy_x6Q/viewform?pli=1"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        size="sm"
-                                        bg="laguna"
-                                        fontWeight="medium"
-                                    >
-                                        Registrate
-                                    </Button>
-                                </VStack>
-                            </Drawer.Body>
-                        </Drawer.Content>
-                    </Drawer.Positioner>
+                                        <Button
+                                            as="a"
+                                            href="https://docs.google.com/forms/d/e/1FAIpQLSfK2DTgveIHUx-Y03_Bt7WKB0oZOTehXiuicsR_hy4Ncy_x6Q/viewform?pli=1"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            size="sm"
+                                            bg="laguna"
+                                            mr={4}
+                                            fontSize="md"
+                                            fontWeight="medium"
+                                        >
+                                            Regístrate
+                                        </Button>
+
+                                        {existsAdmin && (
+                                            <ChakraLink
+                                                asChild
+                                                color={isActive('/admin/dashboard') ? 'lagunaHover.600' : 'white'}
+                                                borderBottom={isActive('/admin/dashboard') ? '2px solid' : 'none'}
+                                                borderColor={isActive('/admin/dashboard') ? 'trail' : 'transparent'}
+                                                _hover={{ color: 'trail', textDecoration: "none"}}
+                                            >
+                                                <Link to={'/admin/dashboard'}>
+                                                    <Icon as={MdAdminPanelSettings} boxSize={6} color={isActive('/admin/dashboard') ? 'trail' : 'white'}/>
+                                                </Link>
+                                            </ChakraLink>
+                                        )}
+                                    </VStack>
+                                </Drawer.Body>
+                            </Drawer.Content>
+                        </Drawer.Positioner>
+                    </Portal>
                 </Drawer.Root>
             </Flex>
         </Box>

@@ -8,6 +8,7 @@ import adminRoutes from "./routes/adminRoutes.js"
 import authRoutes from "./routes/authRoutes.js"
 import resultadosRoutes from "./routes/resultadosRoutes.js"
 import staffRoutes from "./routes/staffRoutes.js"
+import bicicletaRoutes from "./routes/bicicletaRoutes.js"
 
 // Importacion del middleware errorHandler
 import errorHandler from "./middlewares/errorHandler.js";
@@ -27,6 +28,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/resultados', resultadosRoutes)
 app.use('/api/staff', staffRoutes)
 app.use('/api/admin', adminRoutes)
+app.use('/api/bicicletas', bicicletaRoutes)
 
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date() })

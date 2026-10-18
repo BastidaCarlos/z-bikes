@@ -12,7 +12,7 @@ const resultadoSchema = new mongoose.Schema(
         },
         route: {
             type: String,
-            enum: ['25km', '40km'],
+            enum: ['25 KM', '40 KM', '25km', '40km'],
             trim: true
         },
         age: {

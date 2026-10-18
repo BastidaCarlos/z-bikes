@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+console.log('API URL:', import.meta.env.VITE_API_URL)
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL
 })
@@ -21,7 +22,7 @@ api.interceptors.request.use(
 )
 
 api.interceptors.response.use(
-    (response) = response,
+    (response) => response,
     (error) => {
         if (error.response && error.response.status === 401) {
            localStorage.removeItem('token'); 

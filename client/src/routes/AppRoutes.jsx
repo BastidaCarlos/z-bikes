@@ -2,15 +2,14 @@ import { Routes, Route } from "react-router-dom"
 import Layout from "../components/layout/Layout"
 import ProtectedRoute from "./protectedRoutes"
 
-import Home from "../pages/Home"
-import Comunidad from "../pages/Comunidad"
-import RetoZ from "../pages/RetoZ"
-import Rutas from "../pages/Rutas"
-import Resultados from "../pages/Resultados"
+import Home from "../pages/Home/Home"
+import Comunidad from "../pages/Community/Comunidad"
+import RetoZ from "../pages/RetoZ/RetoZ"
+import Rutas from "../pages/Rutas/Rutas"
+import Resultados from "../pages/Resultados/Resultados"
 
-import AdminLogin from "../pages/AdminLogin"
-import Admin from "../pages/Admin"
-import Test from "../pages/Test"
+import AdminLogin from "../pages/Admin/Login/AdminLogin"
+import AdminDashboard from "../pages/Admin/Dashboard/AdminDashboard"
 
 function AppRoutes() {
     return (
@@ -21,13 +20,15 @@ function AppRoutes() {
                 <Route path="/reto-z" element={<RetoZ />} />
                 <Route path="/rutas" element={<Rutas />} />
                 <Route path="/resultados" element={<Resultados />} />
-                <Route path="/admin/login" element={<AdminLogin />} />
-                <Route path="/test" element={<Test />} />
             </Route>
+
+            <Route path="/admin/login" element={<AdminLogin />} />
             
             {/* Protected Routes */}
             <Route element={<ProtectedRoute />}>
-                <Route path="/admin" element={<Admin />} />
+                <Route element={<Layout />}>
+                    <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                </Route>
             </Route>
         </Routes>
     )

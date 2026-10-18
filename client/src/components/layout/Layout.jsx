@@ -5,10 +5,10 @@ import Footer from "./Footer";
 
 function Layout() {
     return (
-        <Flex direction='column' minH="100vh" minW="100vw">
+        <Flex direction='column' minH="100vh" minW="100%">
             <Navbar />
 
-            <Box as="main" flex="1">
+            <Box as="main" flex="1" bg="nieve">
                 <Outlet />
             </Box>
 

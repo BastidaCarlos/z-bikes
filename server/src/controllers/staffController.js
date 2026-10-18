@@ -30,6 +30,18 @@ export const obtenerStaff = async (req, res, next) => {
     }
 }
 
+export const obtenerAdminStaff = async (req, res, next) => {
+    try {
+        const staffList = await Staff.find();
+        return res.status(200).json({
+            staffList,
+            message: `Miembros del Staff ${staffList.length}`
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
 export const crearStaff = async (req, res, next) => {
     try {
         const { name, rol } = req.body;
@@ -92,21 +104,36 @@ export const actualizarStaff = async (req, res, next) => {
     }
 }
 
-export const eliminarStaff = async (req, res, next) => {
+export const actualizarStatusStaff = async (req, res, next) => {
     try {
         const staffId = req.params.id
+        const { isActive } = req.body;
 
-        const deleteMember = await Staff.findByIdAndUpdate(
+        const updatedMember = await Staff.findByIdAndUpdate(
             staffId,
-            { isActive: false },
+            { isActive },
             { returnDocument: 'after' }
         )
 
-        if (!deleteMember) {
-            return res.status(404).json({ message: 'No existe este miembro del Staff'})
+        return res.status(200).json({
+            message: "Estado actualizado",
+            updatedMember
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const eliminarStaffPermanente = async (req, res, next) => {
+    try {
+        const staffId = req.params.id;
+        const member = await Staff.findByIdAndDelete(staffId);
+
+        if (!member) {
+            return res.status(404).json({ message: 'No existe este miembro'})
         }
 
-        return res.status(200).json({ message: 'Miembro eliminado con éxito ', deleteMember })
+        return res.status(200).json({ message: 'Miembor eliminado'})
     } catch (error) {
         next(error)
     }
