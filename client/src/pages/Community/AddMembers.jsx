@@ -11,7 +11,7 @@ import { FaMap, FaCalendarAlt, FaUsers } from "react-icons/fa";
 
 function AddMembers() {
     return (
-        <Box as="section" w="100%" p={{ base: 8, lg: 12}}>
+        <Box as="section" w="100%" p={{ base: 4, lg: 12}}>
             <VStack
                 w="100%"
                 maxW={{ base: '100%', lg: '900px', xl: '1200px' }}
