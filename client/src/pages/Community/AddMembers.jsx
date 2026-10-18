@@ -108,10 +108,12 @@ function AddMembers() {
                     <Button
                         as="a"
                         href="https://whatsapp.com"
+                        w="full"
+                        maxW="100%"
                         bg="laguna"
                         color="white"
                         size="lg"
-                        px={8}
+                        px={{ base: 4, lg: 8}}
                         py={6}
                         fontSize={{ base: 'md', lg: 'lg'}}
                         target="_blank"
