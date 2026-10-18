@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import Layout from "../components/layout/Layout"
-import ProtectedRoute from "./protectedRoutes"
+import ProtectedRoute from "./ProtectedRoutes"
 
 import Home from "../pages/Home/Home"
 import Comunidad from "../pages/Community/Comunidad"
