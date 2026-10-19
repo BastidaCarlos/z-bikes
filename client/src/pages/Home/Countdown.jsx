@@ -171,7 +171,7 @@ function Countdown({ targetDate = "2026-11-29T08:00:00"}) {
                             fontFamily="heading"
                             letterSpacing="1px"
                         >
-                            VER RUTA DE 30 KM
+                            VER RUTA DE 25 KM
                         </Text>
                     </HStack>
                     <HStack

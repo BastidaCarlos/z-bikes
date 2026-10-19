@@ -107,7 +107,7 @@ function AddMembers() {
                     </SimpleGrid>
                     <Button
                         as="a"
-                        href="https://whatsapp.com"
+                        href="https://wa.me/5550091536?text=Hola,%20quiero%20unirme%20al%20equipo"
                         w="full"
                         maxW="100%"
                         bg="laguna"

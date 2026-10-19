@@ -103,10 +103,10 @@ function GeneralInfo() {
                                 textTransform="uppercase"
                                 fontWeight="semibold"
                             >
-                                30 km
+                                25 km
                             </Text>
                             <Text fontSize="sm" color="whiteAlpha.700">
-                                ¿Vas por los 30? Prepara las piernas y elige este recorrido si su exigencia se ajusta a tu experiencia y preparación.
+                                ¿Vas por los 25? Prepara las piernas y elige este recorrido si su exigencia se ajusta a tu experiencia y preparación.
                             </Text>
                         </VStack>
                         <VStack

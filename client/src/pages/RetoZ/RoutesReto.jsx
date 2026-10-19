@@ -82,7 +82,7 @@ function RoutesReto() {
                                 fontWeight="bold"
                                 fontFamily="heading"
                             >
-                                30 Km
+                                25 Km
                             </Badge>
                         </Card.Header>
                         <Card.Body 
@@ -104,7 +104,7 @@ function RoutesReto() {
                             <HStack justify="center" align="center" gap={2} w="100%">
                                 <LuMountainSnow size={20} />
                                 <Text fontSize="lg" fontWeight="medium" textTransform="uppercase" color="teal">
-                                    400 M Desnivel
+                                    500 M Desnivel
                                 </Text>
                             </HStack>
                         </Card.Body>
@@ -119,7 +119,7 @@ function RoutesReto() {
                             >
                                 <HStack>
                                     <Text>
-                                        Explora la ruta de 30 KM
+                                        Explora la ruta de 25 KM
                                     </Text>
                                     <FaArrowRight />
                                 </HStack>

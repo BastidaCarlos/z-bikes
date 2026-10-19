@@ -105,7 +105,7 @@ function About() {
                             fontSize="lg"
                             fontWeight="bold"
                         >
-                            8
+                            4
                         </Text>
                         <Text
                             fontSize="lg"

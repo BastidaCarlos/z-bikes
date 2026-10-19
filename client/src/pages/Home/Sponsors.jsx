@@ -132,7 +132,9 @@ function Sponsors() {
                         <Button
                             as="a"
                             color="white"
-                            href="https://whatsapp.com"
+                            href="https://wa.me/5550091536?text=Hola,%20quiero%20ser%20patrocinador"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             bg="teal"
                             size="md"
                             variant="outline"

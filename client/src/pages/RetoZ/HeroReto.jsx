@@ -92,24 +92,29 @@ function HeroReto() {
                                     fontWeight="medium"
                                     letterSpacing="0.5px"
                                 >
-                                    Pon a prueba tu técnica y resistencia. ¿Vas por los 30 o por los 40 km?
+                                    Pon a prueba tu técnica y resistencia. ¿Vas por los 25 o por los 40 km?
                                 </Text>
-                                <Text 
-                                    as="span"
-                                    textTransform="uppercase"
-                                    fontWeight="medium"
-                                    letterSpacing="0.5px"
+                                <VStack
+                                    align="flex-start"
+                                    gap={0}
                                 >
-                                    29 Noviembre | {currentYear}
-                                </Text>
-                                <Text 
-                                    as="span"
-                                    textTransform="uppercase"
-                                    fontWeight="medium"
-                                    letterSpacing="0.5px"
-                                >
-                                    Nos vemos en la salida en:
-                                </Text>
+                                    <Text 
+                                        as="span"
+                                        textTransform="uppercase"
+                                        fontWeight="medium"
+                                        letterSpacing="0.5px"
+                                    >
+                                        29 Noviembre | {currentYear}
+                                    </Text>
+                                    <Text 
+                                        as="span"
+                                        textTransform="uppercase"
+                                        fontWeight="medium"
+                                        letterSpacing="0.5px"
+                                    >
+                                        Nos vemos en la salida en:
+                                    </Text>
+                                </VStack>
                                 <SimpleGrid 
                                     columns={4}
                                     gap={{ base: 2, sm: 4 }}
@@ -204,7 +209,7 @@ function HeroReto() {
                                     letterSpacing="wide"
                                 >
                                     <LuBike />
-                                    Rutas de 30 y 40 Km
+                                    Rutas de 25 y 40 Km
                                 </HStack>
                                 <HStack
                                     textTransform="uppercase"

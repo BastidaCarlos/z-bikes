@@ -44,7 +44,7 @@ function CTAReto() {
                         fontFamily="heading"
                         textTransform="uppercase"
                     >
-                        ¿Vas por los 30 o por los 40 km?
+                        ¿Vas por los 25 o por los 40 km?
                     </Heading>
                     <Text
                         fontSize={{ base: 'lg', lg: 'xl'}}

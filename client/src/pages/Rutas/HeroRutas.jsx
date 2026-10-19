@@ -54,7 +54,7 @@ function HeroRutas() {
                     maxW="750px"
                     textAlign={{ base: 'justify', lg: "center"}}
                 >
-                    Explora los recorridos de 30 y 40 km de nuestra tercera edición en San Juan Zitlaltepec. Conoce sus distancias, desniveles y características, y elige el desafío que va con tu experiencia y preparación.
+                    Explora los recorridos de 25 y 40 km de nuestra tercera edición en San Juan Zitlaltepec. Conoce sus distancias, desniveles y características, y elige el desafío que va con tu experiencia y preparación.
                 </Text>
             </VStack>
         </Box>

@@ -27,7 +27,7 @@ function PlaceHolderRutas() {
                     Próximamente podrás explorar los recorridos
                 </Heading>
                 <Text textAlign="center">
-                    Publicaremos aquí los mapas y detalles de las rutas de 30 y 40 km del Reto Z 2026. Vuelve a consultar esta sección antes del reto.
+                    Publicaremos aquí los mapas y detalles de las rutas de 25 y 40 km del Reto Z 2026. Vuelve a consultar esta sección antes del reto.
                 </Text>
                 <Text as="span" color="cerro.300" fontStyle="italic" textAlign="center">
                     Nos vemos el 29 de noviembre de 2026 en San Juan Zitlaltepec.

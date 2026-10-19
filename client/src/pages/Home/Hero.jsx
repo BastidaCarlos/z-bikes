@@ -65,7 +65,7 @@ function Hero() {
                             <Text
                                 textAlign={{ base: 'center', lg: 'left'}}
                             >
-                                Elige tu desafío: 30 o 40 km. 
+                                Elige tu desafío: 25 o 40 km. 
                                 <br />
                                 Vive la primera edición 100 % cronometrada del Reto Z 
                                 <br />

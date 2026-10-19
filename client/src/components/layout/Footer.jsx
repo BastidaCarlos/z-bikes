@@ -113,19 +113,25 @@ function Footer() {
                             <HStack>
                                 <IoMdMail />
                                 <Text>
-                                    contacto@zbikes.com
+                                    zbikesmtbsanjuanz@gmail.com
                                 </Text>
                             </HStack>
                             <HStack>
                                 <FaPhoneAlt />
                                 <Text>
-                                    +52 5512345678
+                                    +52 5550091536
                                 </Text>
                             </HStack>
                             <HStack>
                                 <FaPhoneAlt />
                                 <Text>
-                                    +52 5512345678
+                                    +52 5545991248
+                                </Text>
+                            </HStack>
+                            <HStack>
+                                <FaPhoneAlt />
+                                <Text>
+                                    +52 5577980620
                                 </Text>
                             </HStack>
                         </VStack>
@@ -150,7 +156,7 @@ function Footer() {
                             >
                                 <HStack
                                     as="a"
-                                    href="https://facebook.com"
+                                    href="https://www.facebook.com/zbikesmtbzumpango/?locale=es_LA"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -161,7 +167,7 @@ function Footer() {
                                 </HStack>
                                 <HStack
                                     as="a"
-                                    href="https://instagram.com"
+                                    href="https://www.instagram.com/zbikesmtbzumpango/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -172,7 +178,7 @@ function Footer() {
                                 </HStack>
                                 <HStack
                                     as="a"
-                                    href="https://tiktok.com"
+                                    href="https://www.tiktok.com/@z.bikes7?_r=1&_t=ZS-9AfiLrwGlN6"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

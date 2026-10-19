@@ -118,7 +118,7 @@ function FiltersResults({ filtros = {}, onChange }) {
                         Todas las rutas
                     </Tabs.Trigger>
                     <Tabs.Trigger value="25 KM" bg="teal" color="white" _selected={{ bg: "bosque"}} borderRadius="full">
-                        30 KM
+                        25 KM
                     </Tabs.Trigger>
                     <Tabs.Trigger value="40 KM" bg="teal" color="white" _selected={{ bg: "bosque"}} borderRadius="full">
                         40 KM
