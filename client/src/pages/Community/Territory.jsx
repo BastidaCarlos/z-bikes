@@ -75,7 +75,7 @@ function Territory() {
                         <Text color="gray.600" lineHeight="relaxed">
                             Y cuando empiezas a reconocer el camino, el suelo cambia. La tierra compacta da paso a zonas sueltas o arenosas que te hacen prestar atención de nuevo. Parte del gusto de rodar aquí está en eso: conocer mejor el cerro y descubrir cómo respondes en cada sección.
                             <br />
-                            Tómate tu tiempo en los tramos difíciles. Si necesitas bajarte y seguir a pie, también es parte de la rodad. Ya habrá ocasión de volver y probar lo que antes te costaba. Ven a conocer el Cerro Z a tu ritmo; cuando salimos con Z-Bikes, siempre hay alguien dispuesto a esperarte.
+                            Tómate tu tiempo en los tramos difíciles. Si necesitas bajarte y seguir a pie, también es parte de la rodada. Ya habrá ocasión de volver y probar lo que antes te costaba. Ven a conocer el Cerro Z a tu ritmo; cuando salimos con Z-Bikes, siempre hay alguien dispuesto a esperarte.
                         </Text>
                     </VStack>
                     <Box flex="1" w="100%">

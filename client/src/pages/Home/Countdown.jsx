@@ -75,7 +75,7 @@ function Countdown({ targetDate = "2026-11-29T08:00:00"}) {
                                     <Text
                                         fontSize={{ base: 'xs'}}
                                     >
-                                        29 De Noviembre
+                                        29 de Noviembre
                                     </Text>
                                 </HStack>
                                 ·

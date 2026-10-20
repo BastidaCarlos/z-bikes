@@ -16,7 +16,7 @@ function TableResults({ results , isLoading }) {
                 mx="auto"
             >
                 <Spinner colorPalette="teal"/>
-                <Text>Cargando Staff...</Text>
+                <Text>Cargando Resultados...</Text>
             </VStack>
         )
     }

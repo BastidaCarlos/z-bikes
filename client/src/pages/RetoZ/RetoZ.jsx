@@ -15,7 +15,7 @@ function RetoZ() {
             direction="column"
         >
             <SEO 
-                title="Reto Z 2026 · 29 de Noviembre · Inscribete"
+                title="Reto Z 2026 · 29 de Noviembre · Inscríbete"
                 description="Participa en el Reto Z 2026. Rutas de 30km y 40km en el Cerro Z, Zumpango. 29 de Noviembre"
                 path="/reto-z"
             />

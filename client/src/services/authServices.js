@@ -13,3 +13,11 @@ export const loginAdmin = async (credentials) => {
 export const logout = () => {
     localStorage.removeItem('token')
 }
+
+export const pingServer = async () => {
+   try {
+    await api.get('/api/healt')
+   } catch (error) {
+    console.log("Despertando servidor...", error)
+   } 
+}

@@ -71,7 +71,7 @@ function AddMembers() {
                                 Eventos
                             </Heading>
                             <Text fontSize="sm" opacity={0.9}>
-                                Tu próxima rodad empieza con Z-Bikes
+                                Tu próxima rodada empieza con Z-Bikes
                             </Text>
                         </VStack>
                         <VStack gap={2}>

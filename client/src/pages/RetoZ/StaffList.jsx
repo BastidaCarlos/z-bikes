@@ -7,7 +7,6 @@ import {
     Card,
     EmptyState,
     Heading,
-    Image,
     SimpleGrid,
     Spinner,
     Text,

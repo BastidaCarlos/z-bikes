@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { FaBiking, FaLeaf } from "react-icons/fa";
 import { TiGroup } from "react-icons/ti";
+import Team from "../../assets/Team.webp"
 
 function History() {
     return (
@@ -49,8 +50,8 @@ function History() {
 
                 <Box flex="1" w="100%">
                     <Image 
-                        src="https://picsum.photos/600/400"
-                        alt="Comunidad de ciclismo de montaña en ruta"
+                        src={Team}
+                        alt="Comunidad de ciclismo de montaña Z-Bikes"
                         objectFit="cover"
                         borderRadius="2xl"
                         boxShadow="lg"

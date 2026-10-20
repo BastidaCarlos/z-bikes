@@ -1,16 +1,55 @@
 import { 
     Box, 
     Button,
-    Flex, 
     Heading, 
-    Text, 
-    VStack, 
-    Center,
-    Badge,
     Image,
+    Text, 
+    SimpleGrid,
+    VStack, 
 } from "@chakra-ui/react";
 import Sponsor1 from "../../assets/Sponsors/Sponsor1.webp"
 import Sponsor2 from "../../assets/Sponsors/Sponsor2.webp"
+import Sponsor3 from "../../assets/Sponsors/Sponsor3.webp"
+import Sponsor4 from "../../assets/Sponsors/Sponsor4.webp"
+import Sponsor5 from "../../assets/Sponsors/Sponsor5.webp"
+import Sponsor6 from "../../assets/Sponsors/Sponsor6.webp"
+import Sponsor7 from "../../assets/Sponsors/Sponsor7.webp"
+import Sponsor8 from "../../assets/Sponsors/Sponsor8.webp"
+
+const sponsorsList = [
+    {
+        name: 'Consultoría Jurídica Profesional',
+        logo: Sponsor1,
+    },
+    {
+        name: 'EsKa',
+        logo: Sponsor2,
+    },
+    {
+        name: 'Borda2',
+        logo: Sponsor3,
+    },
+    {
+        name: 'The Secret Glitch',
+        logo: Sponsor4,
+    },
+    {
+        name: 'Tío Rullis Carnitas',
+        logo: Sponsor5,
+    },
+    {
+        name: 'Rancho San Juan',
+        logo: Sponsor6,
+    },
+    {
+        name: 'Zella Bikes',
+        logo: Sponsor7,
+    },
+    {
+        name: 'Santa Marina',
+        logo: Sponsor8,
+    },
+]
 
 function Sponsors() {
     return (
@@ -39,75 +78,8 @@ function Sponsors() {
                 </VStack>
 
                 <VStack spacing={6} w="100%">
-                    <Box
-                        w="100%"
-                        p={{ base: 6, md: 8 }}
-                        bg="teal.100"
-                        border="2px solid"
-                        borderColor="laguna"
-                        borderRadius="2xl"
-                        boxShadow="sm"
-                    >
-                        <VStack spacing={4} align="center">
-                            <Badge 
-                                bg="teal"
-                                color="white"
-                                fontSize="xs" 
-                                px={3} 
-                                py={1} 
-                                borderRadius="full"
-                                textTransform="uppercase"
-                                letterSpacing="wider"
-                            >
-                                Patrocinador Oficial
-                            </Badge>
 
-                            <Center py={2} w="100%">
-                                <Image 
-                                    src={Sponsor1}
-                                    borderRadius="full"
-                                    alt="Logo Patrocinador Principal"
-                                    maxH={{ base: "80px", md: "110px" }}   
-                                    maxW="280px" 
-                                    objectFit="contain" 
-                                />
-                            </Center>
 
-                            <Text fontSize="md" fontWeight="bold" color="teal.900">
-                                Consultoría jurídica profesional
-                            </Text>
-                        </VStack>
-                    </Box>
-
-                    <Flex
-                        wrap="wrap"
-                        justify="center"
-                        gap={6}
-                        w="100%"
-                    >
-                        <Center 
-                            p={5} 
-                            border="1px solid" 
-                            borderColor="gray.200" 
-                            borderRadius="xl" 
-                            w={{ base: "calc(50% - 12px)", sm: "180px", md: "200px" }} // Ancho responsivo
-                            h="100px"
-                            _hover={{ borderColor: "laguna" }}
-                            transition="all 0.2s"
-                        >
-                            <Image 
-                                src={Sponsor2} 
-                                alt="Patrocinador 1" 
-                                maxH="60px"
-                                maxW="100%"
-                                objectFit="contain" 
-                                filter="grayscale(100%)"
-                                opacity={0.8}
-                                _hover={{ filter: "grayscale(0%)", opacity: 1 }}
-                                transition="all 0.3s"
-                            />
-                        </Center>
-                    </Flex>
                     <VStack 
                         gap={3}
                         pt={6}
@@ -116,6 +88,39 @@ function Sponsors() {
                         borderTop="1px dashed"
                         borderColor="gray.200"
                     >
+                        <SimpleGrid 
+                            columns={{ base: 1, md: 3, lg: 4 }}
+                            gap={6}
+                        >
+                            {sponsorsList.map((sponsor, index) => (
+                                <VStack
+                                    key={index}
+                                    p={6}
+                                    bg="white"
+                                    borderWidth="1px"
+                                    borderColor="gray.200"
+                                    borderRadius="xl"
+                                    boxShadow="md"
+                                    justify="center"
+                                    align="center"
+                                    _hover={{ boxShadow: 'lg', transform: 'translateY(-2px)' }}
+                                    transition="all 0.2s"
+                                >
+                                    <Box h="80px" w="full" display="flex" alignItems="center" justifyContent="center">
+                                        <Image 
+                                            src={sponsor.logo}
+                                            alt={sponsor.name}
+                                            maxH="100%"
+                                            maxW="100%"
+                                            objectFit="contain"
+                                        />
+                                    </Box>
+                                    <Text fontWeight="semibold" fontSize={{ base: "md", lg: "lg"}} color='cerro.800' textAlign="center" fontFamily="heading" textTransform="uppercase" letterSpacing="wide">
+                                        {sponsor.name}
+                                    </Text>
+                                </VStack>
+                            ))}
+                        </SimpleGrid>
 
                         <Heading
                             fontSize={{ base: 'xl', lg: '2xl'}}

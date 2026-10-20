@@ -145,7 +145,7 @@ function About() {
                             fontSize="lg"
                             fontWeight="medium"
                         >
-                            Ediciones
+                            Ediciones realizadas
                         </Text>
                     </Box>
                 </SimpleGrid>

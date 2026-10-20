@@ -27,7 +27,7 @@ function GeneralInfo() {
                     mb={6}
                     alignSelf="flex-start"
                 >
-                    Informacion general
+                    Información general
                 </Heading>
                 <Box
                     w="100%"
