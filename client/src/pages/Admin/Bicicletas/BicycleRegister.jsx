@@ -26,6 +26,7 @@ import {
     Spinner,
     VStack,
 } from "@chakra-ui/react";
+import SEO from "../../../components/SEO";
 
 const bikeTypesCollection = createListCollection({
     items: [
@@ -36,6 +37,11 @@ const bikeTypesCollection = createListCollection({
 })
 
 function BicycleRegister() {
+    <SEO 
+        tilte="Registro de Bicicletas"
+        description="Registra los datos y fotografías de tu bicicleta en el sistema oficial de Z-Bikes para control y seguridad."
+        path={`/registro/bici/${import.meta.BICI_SECRET_CODE}`}
+    />
     const { biciCode, id } = useParams();
     const navigate = useNavigate();
 

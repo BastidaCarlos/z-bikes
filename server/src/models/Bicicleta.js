@@ -50,6 +50,6 @@ const bicycleSchema = new mongoose.Schema(
     }, { timestamps: true } 
 );
 
-const Bicicleta = mongoose.model("Bicileta", bicycleSchema);
+const Bicicleta = mongoose.model("Bicicleta", bicycleSchema);
 
 export default Bicicleta;

@@ -44,7 +44,7 @@ export const registrarBicicleta = async (req, res, next) => {
 }
 
 export const getBicycles = async (req, res, next) => {
-    const { owner, brand, serialNumber, q } = req.query
+    const { owner, brand, serialNumber, q, page = 1, limit = 6 } = req.query
 
     const filtro = {}
 
@@ -75,10 +75,14 @@ export const getBicycles = async (req, res, next) => {
     try {
         const matchResults = await Bicicleta.countDocuments(filtro)
         const results = await Bicicleta.find(filtro)
+            .skip((page - 1) * limit)
+            .limit(parseInt(limit))
 
         return res.status(200).json({
             results,
-            totalDocuments: matchResults
+            totalDocuments: matchResults,
+            totalPages: Math.ceil(matchResults / limit),
+            actualPage: parseInt(page)
         })
     } catch (error) {
         next(error)
