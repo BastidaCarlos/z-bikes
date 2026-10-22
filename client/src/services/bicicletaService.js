@@ -4,7 +4,7 @@ export const registrarBicicleta = async (formData, biciCode) => {
     try {
         const response = await api.post('/bicicletas', formData, {
             headers: {
-                'Content-Type': 'multipar/form-data',
+                'Content-Type': 'multipart/form-data',
                 'x-bici-code': biciCode || ''
             }
         });

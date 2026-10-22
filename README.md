@@ -36,7 +36,7 @@ cd server/
 ## Configuración del Servidor
 PORT=5000
 NODE_ENV=development
-MONGO_URI=mongodb+srv://<usuario>:<password>@cluster.mongodb.net/<dbname>
+MONGODB_URI=mongodb+srv://<usuario>:<password>@cluster.mongodb.net/<dbname>
 JWT_SECRET=tu_secreto_jwt_super_seguro
 FRONTEND_URL=http://localhost:5173
 

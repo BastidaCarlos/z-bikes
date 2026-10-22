@@ -198,7 +198,7 @@ function BicycleResumen() {
             <HStack w="100%" mt={2} flexDir={{ base: 'column', lg: 'row'}}>
                 <Button
                     w={{ base: '100%', lg: "49%"}}
-                    onClick={() => navigate('/registro-bici/7E2QXCWOBY90NDPK')}
+                    onClick={() => navigate(`/registro-bici/${import.meta.BICI_SECRET_CODE}`)}
                     _hover={{ bg: "lagunaHover", transform: "translateY(-2px)"}}
                     transition="all 0.3s"
                     bg="laguna"
