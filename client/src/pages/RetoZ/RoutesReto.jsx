@@ -176,7 +176,7 @@ function RoutesReto() {
                             <HStack justify="center" align="center" gap={2} w="100%">
                                 <LuMountainSnow size={20} />
                                 <Text fontSize="lg" fontWeight="medium" textTransform="uppercase" color="teal">
-                                    700 M Desnivel
+                                    700 M de Desnivel positivo
                                 </Text>
                             </HStack>
                         </Card.Body>

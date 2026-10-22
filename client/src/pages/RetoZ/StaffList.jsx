@@ -119,7 +119,7 @@ function StaffList() {
                             >
                                 <Avatar.Root boxSize="150px" mx="auto">
                                     <Avatar.Fallback>{member.name}</Avatar.Fallback>
-                                    <Avatar.Image src={member.image} />
+                                    <Avatar.Image src={typeof member.image === 'object' ? member.image.url : member.image} />
                                 </Avatar.Root>
                                 <Card.Body>
                                     <Card.Title color="trail" fontWeight="bold" textTransform="uppercase" fontFamily="heading" letterSpacing="wide" fontSize="2xl">{member.name}</Card.Title>

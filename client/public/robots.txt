@@ -2,5 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /admin/
+Disallow: /bicicletas/
+Disallow: /resumen/
+Disallow: /registro/
 
 Sitemap: https://zbikes.com.mx/sitemap.xml

@@ -8,9 +8,16 @@ const staffSchema = new mongoose.Schema(
             trim: true
         },
         image: {
-            type: String,
-            required: [true, 'The image is required'],
-            trim: true
+            url: {
+                type: String,
+                required: [true, 'The image is required'],
+                trim: true
+            },
+            public_id: { 
+                type: String, 
+                required: true,
+                trim: true 
+            }
         },
         rol: {
             type: String,

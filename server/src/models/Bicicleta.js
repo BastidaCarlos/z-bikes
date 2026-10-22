@@ -31,9 +31,18 @@ const bicycleSchema = new mongoose.Schema(
             required: [true, "El número de serie es requerido"],
             unique: true
         },
-        images: {
-            type: [String],
-        },
+        images: [
+            {
+                url: {
+                    type: String,
+                    required: true
+                },
+                public_id: {
+                    type: String,
+                    required: true
+                }
+            }
+        ],
         notes: {
             type: String,
             maxLength: 400,

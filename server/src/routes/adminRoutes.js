@@ -17,8 +17,8 @@ router.patch('/staff/:id', uploadImage.single('image'), actualizarStaff)
 router.delete('/staff/:id', eliminarStaffPermanente)
 
 router.get('/bicicletas', getBicycles)
-router.get('/bicicletas/:id', getBicycleById)
-router.patch('/bicicletas/:id', updateBike)
-router.delete('/bicicletas/:id', deleteBike)
+router.get('/bicicletas/:bikeId', getBicycleById)
+router.patch('/bicicletas/editar/:bikeId', uploadImage.array('images', 3), updateBike)
+router.delete('/bicicletas/delete/:bikeId', deleteBike)
 
 export default router;

@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import AdminResults from "../Resultados/AdminResults";
 import AdminStaff from "../Staff/AdminStaff";
+import AdminBicycles from "../Bicicletas/AdminBicycles";
 
 function AdminDashboard() {
     const [ resumen, setResumen ] = useState({});
@@ -163,6 +164,7 @@ function AdminDashboard() {
                     </Tabs.List>
                     <Tabs.Content value="resultados"><AdminResults /></Tabs.Content>
                     <Tabs.Content value="staff"><AdminStaff /></Tabs.Content>
+                    <Tabs.Content value="bicicletas"><AdminBicycles /></Tabs.Content>
                 </Tabs.Root>
             </Flex>
         </Box>

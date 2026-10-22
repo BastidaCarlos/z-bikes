@@ -22,12 +22,16 @@ export const registrarBicicleta = async (req, res, next) => {
         const files = req.files || [];
 
         const promisesUpload = files.map(file => subirBufferCloudinary(file.buffer))
-
         const urlsImages = await Promise.all(promisesUpload)
+
+        const formattedImages = urlsImages.map(result => ({
+            url: result.secure_url,
+            public_id: result.public_id
+        }))
 
         const newBicycle = await Bicicleta.create({
             ...req.body,
-            images: urlsImages.map(result => result.secure_url)
+            images: formattedImages
         })
 
         return res.status(201).json({
@@ -101,6 +105,21 @@ export const getBicycleById = async (req, res, next) => {
     }
 }
 
+export const bicicletaResumen = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const bicycle = await Bicicleta.findById(id).select('-phone')
+
+        if (!bicycle) {
+            return res.status(404).json({ message: "Bicicleta no encontrada"})
+        }
+
+        return res.status(200).json({ bicycle })
+    } catch (error) {
+        next(error)
+    }
+}
+
 export const updateBike = async (req, res, next) => {
     try {
         const { bikeId } = req.params;
@@ -108,9 +127,23 @@ export const updateBike = async (req, res, next) => {
 
         const files = req.files || [];
         if (files.length > 0) {
+
+            const existingBike = await Bicicleta.findById(bikeId);
+            if (existingBike && existingBike.images && existingBike.images.length > 0) {
+                for (const img of existingBike.images) {
+                    if (img.public_id) {
+                        await cloudinary.uploader.destroy(img.public_id)
+                    }
+                }
+            }
+
             const promisesUpload = files.map(file => subirBufferCloudinary(file.buffer))
             const urlsImages = await Promise.all(promisesUpload)
-            updateData.images = urlsImages.map(result => result.secure_url)
+
+            updateData.images = urlsImages.map(result => ({
+                url: result.secure_url,
+                public_id: result.public_id
+            }))
         }
 
         const updateBike = await Bicicleta.findByIdAndUpdate(
@@ -134,12 +167,22 @@ export const deleteBike = async (req, res, next) => {
     try {
         const { bikeId } = req.params
 
-        const deletedBike = await Bicicleta.findByIdAndDelete(bikeId)
+        const deletedBike = await Bicicleta.findById(bikeId)
 
         if (!deletedBike) {
             return res.status(404).json({ error: "No existe esta bicicleta"})
         }
 
+        if (deletedBike.images && deletedBike.images.length > 0) {
+            for (const img of deletedBike.images) {
+                if (img.public_id) {
+                    await cloudinary.uploader.destroy(img.public_id)
+                }
+            }
+        }
+
+        await Bicicleta.findByIdAndDelete(bikeId)
+        
         return res.status(200).json({ message: "Bicicleta eliminada permanentemente"})
     } catch (error) {
         next(error)

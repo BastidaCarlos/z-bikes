@@ -15,9 +15,5 @@ export const logout = () => {
 }
 
 export const pingServer = async () => {
-   try {
-    await api.get('/api/healt')
-   } catch (error) {
-    console.log("Despertando servidor...", error)
-   } 
+    await api.get('/health')
 }

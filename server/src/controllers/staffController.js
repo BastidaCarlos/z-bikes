@@ -62,7 +62,10 @@ export const crearStaff = async (req, res, next) => {
         const memberData = {
             name,
             rol,
-            image: cloudinaryUpload.secure_url
+            image: {
+                url: cloudinaryUpload.secure_url,
+                public_id: cloudinaryUpload.public_id
+            }
         }
 
         const newMemberStaff = await Staff.create(memberData);
@@ -83,8 +86,19 @@ export const actualizarStaff = async (req, res, next) => {
         if (rol) upadateData.rol = rol 
 
         if (req.file) {
+            const existingMember = await Staff.findById(staffId);
+
+            if (existingMember && existingMember.image && existingMember.image.public_id) {
+                
+                await cloudinary.uploader.destroy(existingMember.image.public_id);
+            }
+
             const cloudinaryUpload = await subirBufferCloudinary(req.file.buffer)
-            upadateData.image = cloudinaryUpload.secure_url
+
+            upadateData.image = {
+                url: cloudinaryUpload.secure_url,
+                public_id: cloudinaryUpload.public_id
+            }
         }
 
         const updateMember = await Staff.findByIdAndUpdate(
@@ -127,11 +141,17 @@ export const actualizarStatusStaff = async (req, res, next) => {
 export const eliminarStaffPermanente = async (req, res, next) => {
     try {
         const staffId = req.params.id;
-        const member = await Staff.findByIdAndDelete(staffId);
+        const member = await Staff.findById(staffId);
 
         if (!member) {
             return res.status(404).json({ message: 'No existe este miembro'})
         }
+
+        if (member.image && member.image.public_id) {
+            await cloudinary.uploader.destroy(member.image.public_id)
+        }
+
+        await Staff.findByIdAndDelete(staffId);
 
         return res.status(200).json({ message: 'Miembor eliminado'})
     } catch (error) {

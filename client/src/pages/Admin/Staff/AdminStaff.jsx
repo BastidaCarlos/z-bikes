@@ -161,14 +161,24 @@ function AdminStaff() {
             name: staff.name,
             rol: staff.rol,
         })
-        setImagePreview(staff.image)
+        setImagePreview(staff.image.url || staff.image)
         setImageFile(null);
     }
 
     return (
         <Box w="100%" p={4}>
             <VStack gap={6} align="stretch" maxW="1200px" mx="auto">
-                <Heading size="lg" color="laguna">
+                <Heading
+                    as="h2"
+                    fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                    fontFamily="heading"
+                    fontWeight="extrabold"
+                    textTransform="uppercase"
+                    color="laguna"
+                    letterSpacing="wide"
+                    mb={6}
+                    alignSelf="flex-start"
+                >
                     Gestión del Staff
                 </Heading>
                 <Box
@@ -181,7 +191,15 @@ function AdminStaff() {
                     color="white"
                 >
                     <VStack gap={4} algin="stretch">
-                        <Heading size="md" color="laguna">
+                        <Heading
+                            as='h3'
+                            fontSize={{ base: "xl", md: "2xl" }}
+                            fontWeight="bold"
+                            letterSpacing="1px"
+                            textTransform="uppercase"
+                            color="laguna"
+                            fontFamily="heading"
+                        >
                             {editingId ? "Editar Miembro" : "Agregar nuevo miembro"}
                         </Heading>
                         <Field.Root>
@@ -219,7 +237,10 @@ function AdminStaff() {
                             color="white"
                             onFileChange={(details) => {
                                 const selectedFile = details.acceptedFiles[0];
-                                setImageFile(selectedFile);
+                                if (selectedFile) {
+                                    setImageFile(selectedFile);
+                                    setImagePreview(URL.createObjectURL(selectedFile));
+                                }
                             }}
                         >
                             <FileUpload.HiddenInput />
@@ -244,6 +265,7 @@ function AdminStaff() {
                                     variant ="outline"
                                     onClick={resetForm}
                                     colorPalette="gray"
+                                    color="white"
                                 >
                                     Cancelar
                                 </Button>

@@ -4,6 +4,7 @@ export const registrarBicicleta = async (formData, biciCode) => {
     try {
         const response = await api.post('/bicicletas', formData, {
             headers: {
+                'Content-Type': 'multipar/form-data',
                 'x-bici-code': biciCode || ''
             }
         });
@@ -36,9 +37,18 @@ export const getBicicletaById = async (id) => {
     }
 }
 
+export const getBicicletaResumen = async (id) => {
+    try {
+        const response = await api.get(`/bicicletas/resumen/${id}`)
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+}
+
 export const updateBicicleta = async (id, formData) => {
     try {
-        const response = await api.patch(`/admin/bicicletas/${id}`, formData);
+        const response = await api.patch(`/admin/bicicletas/editar/${id}`, formData);
         return response.data
     } catch (error) {
         throw error
@@ -47,7 +57,7 @@ export const updateBicicleta = async (id, formData) => {
 
 export const deleteBicicleta = async (id) => {
     try {
-        const response = await api.delete(`/admin/bicicletas/${id}`)
+        const response = await api.delete(`/admin/bicicletas/delete/${id}`)
         return response.data
     } catch (error) {
         throw error;
