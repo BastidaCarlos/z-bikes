@@ -10,6 +10,7 @@ import Resultados from "../pages/Resultados/Resultados"
 import BicycleRegister from "../pages/Admin/Bicicletas/BicycleRegister"
 import BicycleResumen from "../pages/Admin/Bicicletas/BicycleResumen"
 import BicycleDetails from "../pages/Admin/Bicicletas/BicycleDetails"
+import PrivacyPolicy from "../components/PrivacyPolicy"
 
 import AdminLogin from "../pages/Admin/Login/AdminLogin"
 import AdminDashboard from "../pages/Admin/Dashboard/AdminDashboard"
@@ -27,6 +28,7 @@ function AppRoutes() {
 
             <Route path="/registro-bici/:biciCode" element={<BicycleRegister />} />
             <Route path="/resumen/:id" element={<BicycleResumen />} />
+            <Route path="/aviso-privacidad" element={<PrivacyPolicy />} />
 
             <Route path="/admin/login" element={<AdminLogin />} />
             

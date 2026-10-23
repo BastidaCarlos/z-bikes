@@ -35,7 +35,7 @@ function StaffCard({ staffList, onUpdateStatus, onDelete, onEdit }) {
                     >
                         <Avatar.Root boxSize="150px" mx="auto">
                             <Avatar.Fallback>{staff.name}</Avatar.Fallback>
-                            <Avatar.Image src={typeof staff.image === 'object' ? staff.image.url : staff.image} />
+                            <Avatar.Image src={typeof staff.image === 'object' ? staff.image.url || staff.image : staff.image} />
                         </Avatar.Root>
                         <Card.Body>
                             <Card.Title color="trail" fontWeight="bold" textTransform="uppercase" fontFamily="heading" letterSpacing="wide" fontSize="2xl">{staff.name}</Card.Title>

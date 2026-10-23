@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react"
 import { FaFacebook, FaInstagram, FaTiktok, FaPhoneAlt } from "react-icons/fa"
 import { IoMdMail } from "react-icons/io"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Footer() {
     const currentYear = new Date().getFullYear();
@@ -205,6 +205,9 @@ function Footer() {
                     fontWeight="medium"
                     w="100%"
                 >
+                    <Text>
+                        Conoce nuestro  <Link to="/aviso-privacidad"> <Text as="span" textDecoration="underline" _hover={{ color: 'laguna', transform: "translate(-2px)", transition: "ease-in-out 0.3s"}} >Aviso de Privacidad</Text></Link>
+                    </Text>
                     <Text as="p">
                         &copy; {currentYear} . <Text as="span" onClick={() => navigate('/admin/login')}>Z-Bikes</Text> Todos los derechos reservados
                     </Text>

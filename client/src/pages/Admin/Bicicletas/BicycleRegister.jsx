@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { registrarBicicleta, getBicicletaById, updateBicicleta } from "../../../services/bicicletaService";
 import { toaster } from "../../../components/ui/toaster";
 import { FaUser, FaPhone, FaBicycle, FaCalendar } from "react-icons/fa";
@@ -377,6 +377,27 @@ function BicycleRegister() {
                         </FileUpload.Dropzone>
                         <FileUpload.List />
                     </FileUpload.Root>
+
+                    <Text
+                        fontSize="sm"
+                        color="teal.200"
+                        textAlign="center"
+                        mt={4}
+                    >
+                        All registrar tu bicicleta, aceptas que tus datos son tratados conforme a nuestro
+                        <br />
+                        <Link to="/aviso-privacidad">
+                            <Text 
+                                as="span"
+                                textDecoration="underline"
+                                fontWeight="semibold"
+                                transition="all 0.3s"
+                                _hover={{ color: "laguna", transform: 'scale(1.025)'}}
+                            >
+                                Aviso de Privacidad
+                            </Text>
+                        </Link>
+                    </Text>
 
                     {error && (
                         <Alert.Root status="error">
