@@ -15,6 +15,7 @@ import Sponsor5 from "../../assets/Sponsors/Sponsor5.webp"
 import Sponsor6 from "../../assets/Sponsors/Sponsor6.webp"
 import Sponsor7 from "../../assets/Sponsors/Sponsor7.webp"
 import Sponsor8 from "../../assets/Sponsors/Sponsor8.webp"
+import Sponsor9 from "../../assets/Sponsors/Sponsor9.webp"
 
 const sponsorsList = [
     {
@@ -24,6 +25,10 @@ const sponsorsList = [
     {
         name: 'EsKa',
         logo: Sponsor2,
+    },
+    {
+        name: 'Pollos y Costillas el michoacano',
+        logo: Sponsor9,
     },
     {
         name: 'Borda2',
