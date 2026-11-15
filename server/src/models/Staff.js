@@ -19,9 +19,8 @@ const staffSchema = new mongoose.Schema(
                 trim: true 
             }
         },
-        rol: {
+        nickname: {
             type: String,
-            required: [true, 'The rol is required'],
             trim: true
         },
         isActive: {

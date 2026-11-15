@@ -16,7 +16,6 @@ import { LuChartNoAxesColumn } from "react-icons/lu";
 import { GiStonePath } from "react-icons/gi";
 import { FaMap } from "react-icons/fa";
 import { MdArrowOutward, MdDownload } from "react-icons/md";
-import Ruta from "../../assets/Ruta.webp"
 
 function CardRuta({ route = {} }) {
     const {
@@ -60,10 +59,10 @@ function CardRuta({ route = {} }) {
                     </HStack>
                 </Heading>
                 <Image 
-                    src={Ruta}
+                    src={imagen}
                     alt={`Ruta ${nombre}`}
                     w="100%"
-                    h={{ base: "180px", sm: "240px", md: "280px" }}
+                    h="auto"
                     objectFit="cover"
                     borderRadius="xl"
                 />

@@ -40,7 +40,7 @@ function StaffCard({ staffList, onUpdateStatus, onDelete, onEdit }) {
                         <Card.Body>
                             <Card.Title color="trail" fontWeight="bold" textTransform="uppercase" fontFamily="heading" letterSpacing="wide" fontSize="2xl">{staff.name}</Card.Title>
                             <Card.Description color="cerro.100" fontWeight="semibold" fontSize="md">
-                                {staff.rol}
+                                {staff.nickname}
                             </Card.Description>
                             <HStack>
                                 <Switch.Root

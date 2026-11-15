@@ -44,10 +44,10 @@ export const obtenerAdminStaff = async (req, res, next) => {
 
 export const crearStaff = async (req, res, next) => {
     try {
-        const { name, rol } = req.body;
+        const { name, nickname } = req.body;
 
-        if (!name || !rol) {
-            return res.status(400).json({ message: 'El nombre y el rol son obligatorios'})
+        if (!name) {
+            return res.status(400).json({ message: 'El nombre es obligatorio'})
         }
 
         if (!req.file) {
@@ -61,7 +61,7 @@ export const crearStaff = async (req, res, next) => {
 
         const memberData = {
             name,
-            rol,
+            nickname,
             image: {
                 url: cloudinaryUpload.secure_url,
                 public_id: cloudinaryUpload.public_id
@@ -79,11 +79,11 @@ export const crearStaff = async (req, res, next) => {
 export const actualizarStaff = async (req, res, next) => {
     try {
         const staffId = req.params.id;
-        const { name, rol } = req.body;
+        const { name, nickname } = req.body;
 
         const upadateData = {};
         if (name) upadateData.name = name
-        if (rol) upadateData.rol = rol 
+        if (nickname) upadateData.nickname = nickname 
 
         if (req.file) {
             const existingMember = await Staff.findById(staffId);

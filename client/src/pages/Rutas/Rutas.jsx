@@ -14,13 +14,13 @@ function Rutas() {
                 path="/rutas"
             />
             <HeroRutas />
-            <PlaceHolderRutas />
+            {/* <PlaceHolderRutas /> */}
 
-            {/* <VStack gap={6} mt={8}>
+            <VStack gap={6} mt={8}>
                 {rutas.map((ruta) => (
                     <CardRuta key={ruta.id} route={ruta}/>
                 ))}
-            </VStack> */}
+            </VStack>
         </Box>
     )
 }

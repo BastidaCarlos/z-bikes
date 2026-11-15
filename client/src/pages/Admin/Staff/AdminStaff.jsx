@@ -3,6 +3,7 @@ import { getStaffAdmin, createStaff, updateStaff, updateStaffStatus, deleteStaff
 import StaffCard from "./StaffCard";
 import { toaster } from "../../../components/ui/toaster";
 import { 
+    Alert,
     Box, 
     Button,
     Field,
@@ -13,10 +14,12 @@ import {
     Input,
     InputGroup,
     Heading, 
-    VStack 
+    VStack, 
+    Spinner,
+    Text,
+    EmptyState,
 } from "@chakra-ui/react";
-import { FaUserAlt, FaImage } from "react-icons/fa"
-import { GiStack } from "react-icons/gi"
+import { FaUserAlt, FaIdBadge, FaImage } from "react-icons/fa"
 
 function AdminStaff() {
     const [ staffList, setStaffList ] = useState([]);
@@ -27,7 +30,7 @@ function AdminStaff() {
 
     const [ form, setForm ] = useState({
         name: '',
-        rol: ''
+        nickname: ''
     })
     const [ imageFile, setImageFile ] = useState(null);
     const [ imagePreview, setImagePreview ] = useState('');
@@ -64,7 +67,7 @@ function AdminStaff() {
         try {
             const formData = new FormData();
             formData.append('name', form.name)
-            formData.append('rol', form.rol)
+            formData.append('rol', form.nickname)
             if (imageFile) {
                 formData.append('image', imageFile)
             }
@@ -110,7 +113,7 @@ function AdminStaff() {
     }
 
     const resetForm = () => {
-        setForm({ name: "", rol: ""})
+        setForm({ name: "", nickname: ""})
         setImageFile(null);
         setImagePreview('');
         setEditingId(null);
@@ -159,7 +162,7 @@ function AdminStaff() {
         setEditingId(staff._id);
         setForm({
             name: staff.name,
-            rol: staff.rol,
+            rol: staff.nickname,
         })
         setImagePreview(staff.image.url || staff.image)
         setImageFile(null);
@@ -217,14 +220,14 @@ function AdminStaff() {
                             </InputGroup>
                         </Field.Root>
                         <Field.Root>
-                            <Field.Label>Rol / Puesto</Field.Label>
-                            <InputGroup startElement={<GiStack />}>
+                            <Field.Label>Apodo / Sobrenombre</Field.Label>
+                            <InputGroup startElement={<FaIdBadge />}>
                                 <Input 
                                     variant="solid"
-                                    name="rol"
-                                    value={form.rol}
+                                    name="nickname"
+                                    value={form.nickname}
                                     onChange={handleChange}
-                                    placeholder="Ej. Guía"
+                                    placeholder="Apodo o sobrenombre"
                                     color="black"
                                     required
                                 />
@@ -280,12 +283,48 @@ function AdminStaff() {
                         </HStack>
                     </VStack>
                 </Box>
-                <StaffCard 
-                    staffList={staffList}
-                    onUpdateStatus={handleupdateStatus}
-                    onDelete={handleDeletePermanent}
-                    onEdit={handleEdit}
-                />
+                {isLoading && (
+                    <VStack>
+                        <Spinner />
+                        <Text>Cargando staff</Text>
+                    </VStack>
+                )}
+                {error && (
+                    <Alert.Root status="error">
+                        <Alert.Indicator />
+                        <Alert.Content>
+                            <Alert.Title>Error</Alert.Title>
+                            <Alert.Description>
+                                {error}
+                            </Alert.Description>
+                        </Alert.Content>
+                    </Alert.Root>
+                )}
+
+                {!isLoading && !error && staffList.length === 0 && (
+                    <EmptyState.Root>
+                        <EmptyState.Content>
+                            <EmptyState.Indicator>
+                                <FaIdBadge />
+                            </EmptyState.Indicator>
+                            <VStack>
+                                <EmptyState.Title>Aún no hay Staff</EmptyState.Title>
+                                <EmptyState.Description>
+                                    En breve se agregará el listado del Staff
+                                </EmptyState.Description>
+                            </VStack>
+                        </EmptyState.Content>
+                    </EmptyState.Root>
+                )}
+
+                {!isLoading && !error && staffList.length > 0 && (
+                    <StaffCard 
+                        staffList={staffList}
+                        onUpdateStatus={handleupdateStatus}
+                        onDelete={handleDeletePermanent}
+                        onEdit={handleEdit}
+                    />
+                )}
             </VStack>
         </Box>
     )

@@ -16,6 +16,7 @@ import Sponsor6 from "../../assets/Sponsors/Sponsor6.webp"
 import Sponsor7 from "../../assets/Sponsors/Sponsor7.webp"
 import Sponsor8 from "../../assets/Sponsors/Sponsor8.webp"
 import Sponsor9 from "../../assets/Sponsors/Sponsor9.webp"
+import Sponsor10 from "../../assets/Sponsors/Sponsor10.webp"
 
 const sponsorsList = [
     {
@@ -54,6 +55,10 @@ const sponsorsList = [
         name: 'Santa Marina',
         logo: Sponsor8,
     },
+    {
+        name: 'Casa Maestra',
+        logo: Sponsor10,
+    }
 ]
 
 function Sponsors() {
