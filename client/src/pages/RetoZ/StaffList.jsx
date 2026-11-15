@@ -122,9 +122,9 @@ function StaffList() {
                                     <Avatar.Image src={typeof member.image === 'object' ? member.image.url : member.image} />
                                 </Avatar.Root>
                                 <Card.Body>
-                                    <Card.Title color="trail" fontWeight="bold" textTransform="uppercase" fontFamily="heading" letterSpacing="wide" fontSize="2xl">{member.name}</Card.Title>
+                                    <Card.Title color="trail" fontWeight="bold" textTransform="uppercase" fontFamily="heading" letterSpacing="wide" fontSize="2xl">{member.nickname}</Card.Title>
                                     <Card.Description color="cerro.100" fontWeight="semibold" fontSize="md">
-                                        {member.rol}
+                                        {member.name}
                                     </Card.Description>
                                 </Card.Body>
                             </Card.Root>

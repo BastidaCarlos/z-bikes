@@ -6,7 +6,15 @@ const subirBufferCloudinary = (fileBuffer) => {
         const stream = cloudinary.uploader.upload_stream(
             {
                 folder: 'staff',
-                transformation: [{ width: 500, height: 500, crop: 'thumb', gravity: 'face' }]
+                transformation: [
+                    { 
+                        width: 500, 
+                        height: 500, 
+                        crop: 'fill', 
+                        gravity: 'faces',
+                        zoom: 0.75 
+                    }
+                ]
             },
             (error, result) => {
                 if (error) return reject(error);
