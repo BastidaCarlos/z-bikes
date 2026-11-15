@@ -229,7 +229,6 @@ function AdminStaff() {
                                     onChange={handleChange}
                                     placeholder="Apodo o sobrenombre"
                                     color="black"
-                                    required
                                 />
                             </InputGroup>
                         </Field.Root>
