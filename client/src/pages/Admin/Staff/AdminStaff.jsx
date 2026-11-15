@@ -67,7 +67,7 @@ function AdminStaff() {
         try {
             const formData = new FormData();
             formData.append('name', form.name)
-            formData.append('rol', form.nickname)
+            formData.append('nickname', form.nickname)
             if (imageFile) {
                 formData.append('image', imageFile)
             }
@@ -162,7 +162,7 @@ function AdminStaff() {
         setEditingId(staff._id);
         setForm({
             name: staff.name,
-            rol: staff.nickname,
+            nickname: staff.nickname,
         })
         setImagePreview(staff.image.url || staff.image)
         setImageFile(null);
