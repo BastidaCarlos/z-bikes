@@ -38,9 +38,9 @@ function StaffCard({ staffList, onUpdateStatus, onDelete, onEdit }) {
                             <Avatar.Image src={typeof staff.image === 'object' ? staff.image.url || staff.image : staff.image} />
                         </Avatar.Root>
                         <Card.Body>
-                            <Card.Title color="trail" fontWeight="bold" textTransform="uppercase" fontFamily="heading" letterSpacing="wide" fontSize="2xl">{staff.name}</Card.Title>
+                            <Card.Title color="trail" fontWeight="bold" textTransform="uppercase" fontFamily="heading" letterSpacing="wide" fontSize="2xl">{staff.nickname}</Card.Title>
                             <Card.Description color="cerro.100" fontWeight="semibold" fontSize="md">
-                                {staff.nickname}
+                                {staff.name}
                             </Card.Description>
                             <HStack>
                                 <Switch.Root
